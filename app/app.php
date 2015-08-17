@@ -24,7 +24,7 @@
     });
 
     $app->post("/inventory", function () use ($app) {
-        $item = new Item($_POST['name']);
+        $item = new Item("id", $_POST['name']);
         $item->save();
         return $app['twig']->render("index.html.twig", array("item" =>
         Item::getAll()));
