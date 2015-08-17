@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Inventory Database</title>
+    </head>
+    <body>
+        <h1>Welcome to the Inventory of Collectibles!</h1>
+        <h2>To Do List</h2>
+        {% if item is not empty %}
+            <p>Here are all your collectibles:</p>
+            <ul>
+                {% for item in item %}
+                    <li>{{ item.getName }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action='/inventory' method='post'>
+            <label for='name'>Item Description</label>
+            <input id='name' name='name' type='text'>
+            <button type='submit'>Add!</button>
+        </form>
+
+        <form action='/delete_items' method='post'>
+            <button type='submit'>Clear All</button>
+        </form>
+
+    </body>
+</html>
