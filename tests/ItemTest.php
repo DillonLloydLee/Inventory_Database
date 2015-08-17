@@ -7,7 +7,7 @@
 
     require_once "src/Item.php";
 
-    $server = 'mysql:host=localhost;dbname=inventory';
+    $server = 'mysql:host=localhost;dbname=inventory_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -36,7 +36,7 @@
 
             $result = Item::getAll();
 
-            $this->assertEquals($test_Item, $result[0]);
+            $this->assertEquals($test_Item, $result[1]);
         }
 
         function test_getAll() {
