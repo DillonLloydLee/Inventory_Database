@@ -1,27 +1,41 @@
 <html>
     <head>
         <title>Inventory Database</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Welcome to the Inventory of Collectibles!</h1>
-        {% if item is not empty %}
-            <h3>Here are all your collectibles:</h3>
-            <ul>
-                {% for item in item %}
-                    <li>{{ item.getName }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+        <img src="images/blue.jpg" style='position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;'>
+        <div class="container">
 
-        <form action='/inventory' method='post'>
-            <label for='name'>Item Description</label>
-            <input id='name' name='name' type='text'>
-            <button type='submit'>Add!</button>
-        </form>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
 
-        <form action='/delete_items' method='post'>
-            <button type='submit'>Clear All</button>
-        </form>
+                <h1>Welcome to the Inventory of Collectibles!</h1>
+                <hr>
+                {% if item is not empty %}
+                    <h3>Here are all your collectibles:</h3>
+                        {% for item in item %}
+                            <p>{{ item.getName }}</p>
+                            <br>
+                        {% endfor %}
+                {% endif %}
 
+                <form action='/inventory' method='post'>
+                    <div class="form-group">
+                        <label for='name'>Item Description</label>
+                        <input id='name' class="form-control" name='name'
+                         placeholder='Describe item here' type='text'>
+                        <button type='submit' class='btn btn-warning'>Add!</button>
+                    </div>
+                </form>
+
+                <form action='/delete_items' method='post'>
+                    <button type='submit' class='btn btn-danger'>Clear All</button>
+                </form>
+
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
     </body>
 </html>
