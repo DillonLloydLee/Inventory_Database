@@ -22,7 +22,7 @@
         function test_getName()
         {
             $name = "Gold Liberty Dollar";
-            $test_Item = new Item($name);
+            $test_Item = new Item(null, $name);
 
             $result = $test_Item->getName();
 
@@ -31,20 +31,20 @@
 
         function test_save() {
             $name = "Gold Liberty Dollar";
-            $test_Item = new Item($name);
+            $test_Item = new Item(null, $name);
             $test_Item->save();
 
             $result = Item::getAll();
 
-            $this->assertEquals($test_Item, $result[1]);
+            $this->assertEquals($test_Item, $result[0]);
         }
 
         function test_getAll() {
             $name = "Gold Liberty Dollar";
             $name2 = "Bronze My Little Pony: Applejack";
-            $test_Item = new Item($name);
+            $test_Item = new Item(null, $name);
             $test_Item->save();
-            $test_Item2 = new Item($name2);
+            $test_Item2 = new Item(null, $name2);
             $test_Item2->save();
 
             $result = Item::getAll();
@@ -55,9 +55,9 @@
         function test_deleteAll() {
             $name = "Gold Liberty Dollar";
             $name2 = "Bronze My Little Pony: Applejack";
-            $test_Item = new Item($name);
+            $test_Item = new Item(null, $name);
             $test_Item->save();
-            $test_Item2 = new Item($name2);
+            $test_Item2 = new Item(null, $name2);
             $test_Item2->save();
 
             Item::deleteAll();
